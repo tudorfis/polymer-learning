@@ -1,0 +1,29 @@
+<dom-module id="inheritance-el">
+  <template>
+    <style>
+      :host {
+        --custom-color: red;
+      }
+      .container {
+        /* setting the custom property here will not change */
+        /* the value of the property for other elements in this scope */
+        --custom-color: blue;
+      }
+      .child {
+        /* this will be always be red. */
+        color: var(--custom-color);
+      }
+    </style>
+
+    <div class="container">
+      <div class="child">
+        I will be red
+      </div>
+    </div>
+  </template>
+  <script>
+    Polymer({
+      is: 'inheritance-el'
+    })
+  </script>
+</dom-module>

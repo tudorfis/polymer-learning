@@ -1,0 +1,21 @@
+<script>
+    MyElement = Polymer({
+        is: 'my-element-cool',
+        created: function() {
+            console.log(this.localName + ' #' + this.id + ' was created');
+
+            // access a local DOM element by ID using this.$
+//            this.$.header.textContent = 'Hello!';
+        },
+        ready: function() {
+            console.log(this.localName + ' #' + this.id + ' has local DOM initialized');
+        },
+        attached: function() {
+            console.log(this.localName + ' #' + this.id + ' was detached');
+        },
+        attributeChanged: function(name, type) {
+            console.log(this.localName + ' #' + this.id + 'attribute ' + name +
+                ' was changed to ' + this.getAttribute(name))
+        }
+    })
+</script>

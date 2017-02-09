@@ -1,0 +1,15 @@
+<script>
+    var MyElement = Polymer.Class({
+        is: 'my-element',
+
+        // See below for lifecycle callbacks
+        created: function() {
+            this.textContent = 'My element!';
+        }
+    });
+
+    document.registerElement('my-element', MyElement);
+
+    var el1 = new MyElement();
+    var el2 = document.createElement('my-element');
+</script>

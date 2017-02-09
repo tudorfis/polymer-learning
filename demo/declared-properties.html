@@ -1,0 +1,17 @@
+<script>
+    Polymer({
+        is: 'x-custom',
+        properties: {
+            user: String,
+            isHappy: Boolean,
+            count: {
+                type: Number,
+                readOnly: true,
+                notify: true
+            }
+        },
+        ready: function() {
+            this.textContent = 'Hello world, I am a custom element!';
+        }
+    })
+</script>

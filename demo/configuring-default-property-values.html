@@ -1,0 +1,16 @@
+<script>
+    Polymer({
+        is: 'x-custom',
+        properties: {
+            mode: {
+                type: String,
+                value: 'auto'
+            },
+            data: {
+                type: Object,
+                notify: true,
+                value: function() { return {}; }
+            }
+        }
+    })
+</script>

@@ -1,0 +1,14 @@
+<script>
+    MyElement = Polymer({
+        is: 'my-element',
+        factoryImpl: function(foo, bar) {
+            this.foo = foo;
+            this.configureWithBar(bar);
+        },
+        configureWithBar: function(bar) {
+            // ...
+        }
+    });
+
+    var el = new MyElement(42, 'octopus');
+</script>

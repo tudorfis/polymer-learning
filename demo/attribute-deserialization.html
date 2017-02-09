@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="import"  href="https://polygit2.appspot.com/components/polymer/polymer.html">
+    <script>
+        Polymer({
+            is: 'x-custom',
+            properties: {
+                userName: String,
+                somevar: {
+                    type: String,
+                    value: 'false',
+                    notify: true,
+                    reflectToAttribute: true,
+                },
+                manager: {
+                    type: Boolean,
+                    notify: true
+                },
+            },
+            attached: function() {
+                // render
+                this.textContent = 'Hello world, my user is ' + (this.userName || 'nobody') + '.\n' +
+                        'This user is ' + (this.manager ? '' : 'not') + ' a manager. '+ (this.somevar == 'true' ? 'Yes' : 'No');
+            }
+        })
+    </script>
+</head>
+<body>
+    <x-custom user-name="Tudor" manager somevar="false"></x-custom>
+    <my-element book='{"title": "Persuasion", "author": "Austen"}'></my-element>
+</body>
+</html>

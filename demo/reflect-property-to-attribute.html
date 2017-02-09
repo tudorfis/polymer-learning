@@ -1,0 +1,14 @@
+<script>
+    Polymer({
+        properties: {
+            response: {
+                type: Object,
+                reflectToAttribute: true
+            }
+        },
+        responseHandler: function(response) {
+            this.response = 'loaded';
+            // results in this.setAttribute('response', 'loaded');
+        }
+    });
+</script>

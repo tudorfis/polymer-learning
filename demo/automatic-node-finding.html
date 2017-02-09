@@ -1,0 +1,13 @@
+<dom-module id="x-custom">
+    <template>
+        Hello World from <span id="name"></span>!
+    </template>
+    <script>
+        Polymer({
+            is: 'x-custom',
+            ready: function() {
+                this.$.name.textContent = this.tagName;
+            }
+        })
+    </script>
+</dom-module>

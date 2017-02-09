@@ -1,0 +1,17 @@
+<script>
+    // register an element
+    MyElement = Polymer({
+        is: 'my-element',
+
+        // see below for lifecycle callbacks
+        created: function() {
+            this.textContent = 'My element!';
+        }
+    });
+
+    // create an instance with createElement;
+    var el1 = document.createElement('my-element');
+
+    // ... or with the constructor:
+    var el2 = new MyElement();
+</script>

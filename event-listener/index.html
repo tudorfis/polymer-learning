@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+  <link rel="import"  href="https://polygit2.appspot.com/components/polymer/polymer.html">
+  <link rel="import" href="tap.html" />
+  <link rel="import" href="annotated.html" />
+  <link rel="import" href="event-retargeting.html" />
+</head>
+<body>
+  <!-- <x-custom></x-custom>
+  <x-annotated></x-annotated> -->
+
+  <event-retargeting></event-retargeting>
+
+  <script>
+    var el = document.querySelector('event-retargeting');
+    el.addEventListener('click', function(){
+      var normalizedEvent = Polymer.dom(event);
+
+      // logs #myButton
+      console.info('rootTarget is: ', normalizedEvent.rootTarget);
+
+      // logs the instance of event-targeting that hosts #myButton
+      console.info('localTarget is: ', normalizedEvent.localTarget);
+
+      // logs [#myButton, document-fragment, event-retargeting,
+      //        body, html, document, Window]
+      console.info('path is:', normalizedEvent.path);
+    })
+  </script>
+</body>
+</html>

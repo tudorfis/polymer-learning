@@ -1,0 +1,18 @@
+<dom-module id="x-annotated">
+  <template>
+    <button on-tap="handleTap">Kick Me</button>
+  </template>
+  <script>
+    Polymer({
+      is: 'x-annotated',
+      handleTap: function() {
+        alert("Ow!");
+      },
+      attached: function() {
+        /* imperatively add and remove listeners */
+        this.listen(this.$.myButton, 'tap', 'onTap');
+        this.unlisten(this.$.myButton, 'tap', 'onTap');
+      }
+    })
+  </script>
+</dom-module>

@@ -1,0 +1,21 @@
+<dom-module id="x-custom">
+  <template>
+    <style>
+      :host {
+        --my-toolbar-color: red;
+      }
+    </style>
+
+    <my-toolbar>My awesome app</my-toolbar>
+    <button on-tap="changeTheme">Change theme</button>
+  </template>
+  <script>
+    Polymer({
+      is: 'x-custom',
+      changeTheme: function() {
+        this.customStyle['--my-toolbar-color'] = 'blue';
+        this.updateStyles();
+      }
+    })
+  </script>
+</dom-module>

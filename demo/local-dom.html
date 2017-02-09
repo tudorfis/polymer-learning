@@ -1,0 +1,32 @@
+<dom-module id="local-dom">
+    <template>
+        Hello world
+        <ul></ul>
+    </template>
+    <script>
+        Polymer({
+            is: 'local-dom',
+            attached: function(){
+
+                // append to local dom
+                var toLocal = document.createElement('img');
+                Polymer.dom(this.root).appendChild(toLocal);
+
+                // insert to the local dom
+                var toInsert = document.createElement('div');
+                var beforeNode = Polymer.dom(this.root).childNodes[0];
+                Polymer.dom(this.root).insertBefore(toInsert, beforeNode);
+
+                // automatic node finding
+//                var item = document.createElement('li');
+//                Polymer.dom(this.$.list).appendChild(item);
+
+                var cancelButton = Polymer.dom(this.root).querySelector('#cancelButton');
+
+                // shorthand for finding a local DOM child by selector
+                // (equivalent to the above):
+                this.$$('#cancelButton');
+            }
+        });
+    </script>
+</dom-module>

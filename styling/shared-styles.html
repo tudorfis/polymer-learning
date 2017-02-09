@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+  <link rel="import" href="../shared-styles/shared-styles.html" />
+</head>
+<body>
+  <dom-module id="x-foo">
+    <template>
+      <!-- include the style module by name -->
+      <style include="shared-styles"></style>
+      <style>
+        :host {
+          display: block;
+        }
+      </style>
+      Hi
+    </template>
+    <script>
+      Polymer({
+        is: 'x-foo',
+        ready: function() {
+          this.scopeSubtree(this.$.container, true);
+        }
+      });
+    </script>
+  </dom-module>
+</body>
+</html>

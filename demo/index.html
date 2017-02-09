@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script>
+      /*
+      window.Polymer = window.Polymer || {};
+      window.Polymer.dom = 'shadow';
+      */
+    </script>
+    <link rel="import" href="icon-toggle-demo.html">
+    <link rel="import" href="lifetime-callbacks.html">
+    <link rel="import" href="register-new-element.html">
+    <link re="import" href="static-attributes.html"
+
+    <style is="custom-style">
+      /* Define a document-wide default-will not override a :host rule in icon-toggle-demo */
+      :root {
+        --icon-toggle-outline-color: red;
+        --iron-icon-width: 30px;
+        --iron-icon-height: 30px;
+      }
+      /* Override the value specified in icon-toggle-demo */
+      icon-toggle-demo {
+        --icon-toggle-pressed-color: blue;
+      }
+      /* This rule does not work! */
+      body {
+        --icon-toggle-color: purple;
+      }
+      /* This doesn't work */
+      iron-icon {
+        --iron-icon-width: 150px;
+        --iron-icon-height: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <icon-toggle-demo></icon-toggle-demo>
+    <my-element-cool id="tudor"></my-element-cool>
+    <x-custom></x-custom>
+  </body>
+</html>

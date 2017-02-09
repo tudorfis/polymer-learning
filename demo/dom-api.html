@@ -1,0 +1,27 @@
+<dom-module id="dom-api">
+    <template>
+        <p>wuhuuu! life is awesome</p>
+        <div id="container">
+            <div id=""first"></div>
+            <content></content>
+        </div>
+    </template>
+    <script>
+        Polymer({
+            is: 'dom-api',
+            attached: function() {
+
+                // add a child to the light DOM
+//                var toLight = document.createElement('div');
+//                Polymer.dom(this).appendChild(toLight);
+
+                // retrieve all <span> elements in the light DOM
+//                var allSpans = this.queryAllEffectiveChildren('span');
+
+                var insert = document.createElement('div');
+                Polymer.dom(this.$.container).insertBefore(insert, this.$.first);
+
+            }
+        })
+    </script>
+</dom-module>

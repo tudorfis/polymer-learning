@@ -1,0 +1,15 @@
+<script>
+    Polymer({
+        properties: {
+            response: {
+                type: Object,
+                readOnly: true,
+                notify: true
+            }
+        },
+
+        responseHandler: function(response) {
+            this._setResponse(response);
+        }
+    });
+</script>

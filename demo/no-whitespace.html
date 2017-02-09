@@ -1,0 +1,18 @@
+<dom-module id="no-whitespace">
+    <template strip-whitespace>
+        <div>A</div>
+        <div>B</div>
+        <div>B</div>
+        <div>B</div>
+        <div>B</div>
+        <div>B</div>
+    </template>
+    <script>
+        Polymer({
+            is: 'no-whitespace',
+            ready: function () {
+                console.log(Polymer.dom(this.root).childNodes.length); // 2
+            }
+        })
+    </script>
+</dom-module>

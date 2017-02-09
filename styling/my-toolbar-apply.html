@@ -1,0 +1,41 @@
+<dom-module id="my-toolbar">
+  <template>
+    <style>
+      /* apply custom theme to toolbars */
+      :host {
+        --my-toolbar-theme: {
+          background-color: green;
+          border-radius: 4px;
+          border: 1px solid gray;
+        };
+        --my-toolbar-title-theme: {
+          color: green;
+        }
+
+        padding: 4px;
+        background-color: gray;
+        @apply(--my-toolbar-theme);
+      }
+
+      /* make only toolbars with the .warning class red and bold */
+      .warning {
+        --my-toolbar-title-theme: {
+          color: red;
+          font-weight: bold;
+        }
+      }
+      .title {
+        @apply(--my-toolbar-title-theme);
+      }
+    </style>
+
+    <my-toolbar title="This one is green."></my-toolbar>
+    <my-toolbar title="This one is green too."></my-toolbar>
+
+    <my-toolbar class="warning" title="This one is red."></my-toolbar>
+    <span class="title">{{title}}</span>
+  </template>
+  <script>
+    Polymer({is: 'my-element'});
+  </script>
+</dom-module>

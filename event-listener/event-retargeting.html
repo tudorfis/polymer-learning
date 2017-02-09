@@ -1,0 +1,21 @@
+<dom-module id="event-retargeting">
+  <style>
+    :host {
+      display: block;
+    }
+  </style>
+  <template>
+    <button id="myButton">Click me</button>
+  </template>
+  <script>
+    Polymer({
+      is: "event-retargeting",
+      listeners: {
+        'click': 'handleClick',
+      },
+      handleClick: function (e) {
+        console.info(e.target.id + ' was clicked.');
+      }
+    });
+  </script>
+</dom-module>

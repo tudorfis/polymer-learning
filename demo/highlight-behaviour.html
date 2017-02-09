@@ -1,0 +1,38 @@
+<script>
+    HighlightBehaviour = {
+        properties: {
+            isHighlighted: {
+                type: Boolean,
+                value: false,
+                notify: true,
+                observer: '_highlightChanged'
+            }
+        },
+        listeners: {
+            click: '_toggleHighlight'
+        },
+        created: function() {
+            console.log('Highlighting for ', this, 'enabled!');
+        },
+        _toggleHighlight: function() {
+            this.isHighlighted = !this.isHighlighted;
+        },
+        _highlightChanged: function(value) {
+            this.toggleClass('highlighted', value);
+        },
+        registered: function() {
+            // collate keyBindings objects from behaviors & element prototype
+            var keyBindings = this.behaviors.map(function(behavior){
+                return behavior.keyBindings;
+            });
+            if (keyBindings.indexOf(this.keyBindings) === -1) {
+                keyBindings.push(this.keyBindings);
+            }
+
+            // process key bindings in order
+            keyBindings.forEach(function(){
+                // ...
+            });
+        }
+    }
+</script>

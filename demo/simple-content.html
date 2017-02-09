@@ -1,0 +1,45 @@
+<dom-module id="simple-content">
+    <template>
+        <!--<content id="myContent">-->
+            <!--<a href="#">asd</a>-->
+            <!--<img src="">-->
+        <!--</content>-->
+        <simple-carousel>
+            <img src="one.jpg">
+            <img src="two.jpg">
+            <img src="three.jpg">
+        </simple-carousel>
+    </template>
+    <script>
+        Polymer({
+            is: 'simple-content',
+//            ready: function() {
+//                var distributed = this.getContentChildren('#myContent');
+//                console.log(distributed.length)
+//            }
+            attached: function() {
+                this.childCount = Polymer.dom(this).children.length;
+                console.log(this.childCount);
+                // do something with childCount ...
+//                var effectiveChildren = Polymer.dom(element).getEffectiveChildNodes();
+
+                this._observer = Polymer.dom(this.$.contentNode).observerNodes(function(info){
+                    this.processNewNodes(info.addedNodes);
+                    this.processRemovedNodes(info.removedNodes);
+                });
+
+                Polymer.dom(node).unobserveNodes(this._observer);
+
+                this._observer = Polymer.dom(this.$.content).observeNodes(_childrenChanged);
+
+                var boundHandler = this._childNodesChanged.bind(this);
+                this._observer = Polymer.dom(this.$.content).observeNodes(boundHandler);
+
+                info.addedNodes.filter(function(node){
+                    return (node.nodeType === Node.ELEMENT_NODE)
+                });
+
+            }
+        })
+    </script>
+</dom-module>

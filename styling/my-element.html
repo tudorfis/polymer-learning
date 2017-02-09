@@ -1,0 +1,25 @@
+<dom-module id="my-element">
+    <template>
+        <style>
+            :host {
+                display: block;
+                border: 1px solid red;
+            }
+            #child-element {
+                background: yellow;
+            }
+
+            /* styling elements distributed to content (via ::content) requires */
+            /* selecting the parent of the <content> element for compatibility with */
+            /* shady DOM . This can be :host or a wrapper element. */
+            .content-wrapper ::content > .special {
+                background: orange;
+            }
+        </style>
+
+        <div id="child-element">In local DOM!</div>
+        <div class="content-wrapper">
+            <content></content>
+        </div>
+    </template>
+</dom-module>

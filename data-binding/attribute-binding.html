@@ -1,0 +1,35 @@
+<dom-module id="attribute-binding">
+  <style>
+    :host {
+      display: block;
+    }
+  </style>
+  <template>
+    <!-- attribute binding -->
+    <my-element selected$="[[value]]"></my-element>
+    <!-- results in <my-element>.setAttribute('selected', this.value); -->
+
+    <!-- property binding -->
+    <my-element selected="{{value}}"></my-element>
+    <!-- results in <my-element>.selected = this.value; -->
+
+    <!-- class -->
+    <div class$="[[foo]]"></div>
+
+    <!-- style -->
+    <div style$="[[background]]"></div>
+
+    <!-- href -->
+    <a href$="[[url]]"
+
+    <!-- label -->
+    <label for$="[[bar]]"></label>
+
+    <!-- dataset -->
+    <div data-bar$="[[baz]]"></div>
+
+    <!-- aria -->
+    <button aria-label$="[[buttonLabel]]"></button>
+
+  </template>
+</dom-module>

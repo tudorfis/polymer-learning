@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <script src="components/webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="components/polymer/polymer.html" />
+  <link rel="import" href="components/iron-ajax/iron-ajax.html" />
+</head>
+<body>
+
+  <!-- wrap elements with auto-binding template to -->
+  <!-- allow use of Polymer bindings in main document -->
+  <template id="t" is="dom-bind">
+    <iron-ajax url="http://..." last-response="{{data}}"
+  </template>
+
+</body>
+</html>

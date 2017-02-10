@@ -1,0 +1,25 @@
+<dom-module id="x-argument-observer">
+  <template>
+    <input value="{{firstName::input}}" placeholder="First name">
+    <input value="{{lastName::input}}" placeholder="Last name">
+  </template>
+  <script>
+    Polymer({
+      is: "x-argument-observer",
+      properties: {
+        firstName: {
+          type: String
+        },
+        lastName: {
+          type: String
+        }
+      },
+      observers: [
+        'nameChanged(firstName, lastName)'
+      ],
+      nameChanged: function(firstName, lastName) {
+        console.log('new name:', firstName, lastName);
+      }
+    });
+  </script>
+</dom-module>

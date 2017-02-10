@@ -1,0 +1,40 @@
+<dom-module id="x-custom">
+  <style>
+    :host {
+      display: block;
+    }
+  </style>
+  <template>
+    My name is <span>[[_formatName(first, last)]]</span>
+    <span>{{translate('Hello\, nice to meet  you', first, last)}}</span>
+    <span>{{doThisOnce()}}</span>
+
+    <!-- compound bindings -->
+    <img src$="https://www.example.com/profiles/[[userId]].jpg" />
+    <span>Name: [[lastname]], [[firstname]]</span>
+    
+  </template>
+  <script>
+    Polymer({
+      is: "x-custom",
+      properties: {
+        name: {
+          first: String,
+          last: String
+        },
+      },
+      doThisOnce: function() {
+          return Math.random();
+      },
+      _formatName: function(first, last) {
+        return first + ' ' + last;
+      },
+      attached: function() {
+        this.name = {
+          first: "Tudor",
+          last: "Fis"
+        }
+      }
+    });
+  </script>
+</dom-module>

@@ -1,0 +1,16 @@
+<script>
+  Polymer({
+    is: "x-custom",
+    properties: {
+      preload: Boolean,
+      src: String,
+      size: String,
+    },
+    observers: [
+      'updateImage(preload, src, size)'
+    ],
+    updateImage: function(preload, src, size) {
+      // ... do work using dependent values
+    }
+  });
+</script>

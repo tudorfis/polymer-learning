@@ -1,0 +1,27 @@
+<script>
+  Polymer({
+    is: "x-property-observer",
+    properties: {
+      disabled: {
+        type: Boolean,
+        observer: '_disabledChanged'
+      },
+      highlight: {
+        observer: '_highlightChanged'
+      }
+    },
+    observers: [
+        'userListChanged(users.*, filter)'
+    ],
+    _disabledChanged: function(newValue, oldValue) {
+      this.toggleClass('disabled', newValue);
+      this.highlight = true;
+    },
+    _highlightChanged: function() {
+        this.classList.add('highlight');
+        this.async(function(){
+          this.classList.remove('hightlight');
+        }, 300);
+    }
+  });
+</script>

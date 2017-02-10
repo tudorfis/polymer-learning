@@ -1,0 +1,33 @@
+<script>
+   Polymer({
+     is: "x-custom",
+     properties: {
+       users: {
+         type: Array,
+         value: function() {
+           return [];
+         }
+       }
+     },
+     observers: [
+       'usersAddedOrRemoved(users.splice)'
+     ],
+     usersAddedOrRemoved: function(changeRecord) {
+       if (changeRecord) {
+         changeRecord.indexSplices.forEach(function(s){
+           s.removed.forEach(function(user){
+             console.log(user.name + ' was removed');
+           });
+           for (var i=0; i<s.addedCount; i++) {
+             var index = s.index + i;
+             var newUser = s.object[index];
+             console.log('User ' + newUser.name + ' added at index ' + index);
+           }
+         }, this);
+       }
+     },
+     ready: function() {
+       this.push('users', {name: "Jack Aubrey"});
+     },
+   });
+</script>

@@ -1,0 +1,29 @@
+<dom-module id="employee-list-multiple">
+  <style>
+    :host {
+      display: block;
+    }
+  </style>
+  <template>
+    <div>
+      Employee list:
+    </div>
+    <template is="dom-repeat" items="{{employees}}" as="employee">
+      <div>
+        First name: <span>{{employee.first}}</span>
+      </div>
+      <div>
+        Last name: <span>{{employee.last}}</span>
+      </div>
+      <div>
+        Direct reports:
+      </div>
+      <template is="dom-repeat" items="{{employee.reports}}" as="report" index-as="report_no">
+        <div>
+          <span>{{report_no}}</span>.
+          <span>{{report.first}}</span> <span>{{report.last}}</span>
+        </div>
+      </template>
+    </template>
+  </template>
+</dom-module>

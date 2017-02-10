@@ -1,0 +1,24 @@
+<dom-module id="user-page">
+  <style>
+    :host {
+      display: block;
+    }
+  </style>
+  <template>
+    All users will see this:
+    <div>{{user.name}}</div>
+
+    <template is="dom-if" if="{{user.isAdmin}}">
+      Only admins will see this.
+      <div>{{user.secretAdminStuff}}</div>
+    </template>
+  </template>
+  <script>
+    Polymer({
+      is: "user-page",
+      properties: {
+        user: Object
+      }
+    }); 
+  </script>
+</dom-module>

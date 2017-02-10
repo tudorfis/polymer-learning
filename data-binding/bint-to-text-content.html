@@ -1,0 +1,23 @@
+<dom-module id="user-view">
+  <style>
+    :host {
+      display: block;
+    }
+  </style>
+  <template>
+    <div>
+      [[name]]
+    </div>
+  </template>
+  <script>
+    Polymer({
+      is: "user-view",
+      properties: {
+        name: String
+      }
+    });
+  </script>
+</dom-module>
+
+<!-- usage -->
+<user-view name="Samuel"></user-view>

@@ -1,0 +1,35 @@
+<dom-module id="x-sub-property-observer">
+  <style>
+    :host {
+      display: block;
+    }
+  </style>
+  <template>
+    <!-- sub-property is updated via property binding -->
+    <input value="{{user.name::input}}" />
+  </template>
+  <script>
+    Polymer({
+      is: "x-sub-property-observer",
+      properties: {
+        user: {
+          type: Object,
+          value: function() {
+            return {};
+          }
+        }
+      },
+      // Each item of observers array is a method name followed by
+      // a comma-separated list of one or more paths.
+      observers: [
+        'userNameChanged(user.name)'
+      ],
+      // Each method referenced in observers must be defined in
+      // element prototype. The argument top the method is the new value
+      // of the sub-property.
+      userNameChanged: function(name) {
+        console.log('new name: ' + name);
+      }
+    });
+  </script>
+</dom-module>

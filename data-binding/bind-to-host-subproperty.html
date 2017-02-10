@@ -1,0 +1,24 @@
+<dom-module id="main-view">
+  <style>
+    :host {
+      display: block;
+    }
+  </style>
+  <template>
+    <user-view first="{{user.first}}" last="{{user.last}}"></user-view>
+    <my-page show-login="[[!isLoggedIn]]"></my-page>
+  </template>
+  <script>
+    Polymer({
+      is: "main-view",
+      properties: {
+        user: Object
+      },
+      attached: function() {
+
+        // change a subproperty observably
+        this.set('name.last', 'Martin');
+      },
+    });
+  </script>
+</dom-module>

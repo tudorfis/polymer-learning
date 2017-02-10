@@ -1,0 +1,48 @@
+<dom-module id="custom-element">
+  <style>
+    :host {
+      display: block;
+    }
+  </style>
+  <template>
+    <template is="dom-repeat" items="[[users]]">{{item}}</template>
+  </template>
+  <script>
+    Polymer({
+      is: "custom-element",
+      addUser: function(user) {
+        this.push('users', user);
+      },
+      removeUser: function(user) {
+        var index = this.users.indexOf(user);
+        this.splice('users', index, 1)
+      },
+      lookupArrayItemByKey: function() {
+        var item = this.get(['myArray', key]);
+      },
+      findIndexForArray: function() {
+        // delete an item, based on the item's key
+        var index = this.myArray.indexOf(item);
+        if (index != -1) {
+          this.splice('myArray', index, 1)
+        }
+      },
+      forceDataToPickupSubpropertyChanges: function() {
+        var address = this.address;
+        this.address = {};
+        this.address = address;
+      },
+      forceDataToPickupArrayMutations: function() {
+        var array = this.myArray;
+        this.myArray = [];
+        this.myArray = array;
+      },
+      forceDataToReevaluateASubproperty: function() {
+        var members = this.group.members;
+        this.set('group.members', []);
+        this.set('group.members', members);
+      }
+
+    });
+  </script>
+</dom-module>

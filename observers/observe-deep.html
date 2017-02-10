@@ -1,0 +1,40 @@
+<dom-module id="x-deep-observer">
+  <style>
+    :host {
+      display: block;
+    }
+  </style>
+  <template>
+    <input value="{{user.name.first::input}}" placeholder="First name">
+    <input value="{{user.name.last::input}}" placeholder="Last name">
+    <input type="checkbox" checked="{{hostChecked::change}}" />
+  </template>
+  <script>
+    Polymer({
+      is: "x-deep-observer",
+      properties: {
+        user: {
+          type: Object,
+          value: function () {
+            return {'name':{}};
+          }
+        },
+        hostChecked: {
+          type: Boolean,
+          value: false
+        }
+      },
+      observers: [
+        'userNameChanged(user.name.*)',
+        'changedChecked(hostChecked)'
+      ],
+      userNameChanged: function(changeRecord) {
+        console.log('path: ' + changeRecord.path);
+        console.log('value: ' + changeRecord.value);
+      },
+      changedChecked: function(changeRecord) {
+        console.log('object checked: ' + changeRecord);
+      }
+    });
+  </script>
+</dom-module>
